@@ -37,7 +37,7 @@ spring:
         enabled: false
   datasource:
     username: admin
-    password: rhkdgo3762
+    password: rhkdgo3761
     url: jdbc:log4jdbc:mysql://database-goms.cdqwi0uis6zq.ap-northeast-2.rds.amazonaws.com:3306/gomsdb?useSSL=false&serverTimezone=Asia/Seoul
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
   jpa:
