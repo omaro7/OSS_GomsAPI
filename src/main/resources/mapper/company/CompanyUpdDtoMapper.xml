@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.goms.web.oss.biz.repository.CompanyRepository">
+    <update id="updCompany" parameterType="kr.co.goms.web.oss.biz.service.dto.CompanyUpdInDto">
+        UPDATE company SET com_idx = #{comIdx}, com_name = #{comName}, useflag = #{useflag}, regdate = #{regdate} WHERE #{comIdx}
+   </update>
+</mapper>

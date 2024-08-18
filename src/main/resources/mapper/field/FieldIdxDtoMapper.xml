@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.goms.web.oss.biz.repository.FieldRepository">
+    <select id="getField" parameterType="kr.co.goms.web.oss.biz.domain.FieldIdxIn" resultType="kr.co.goms.web.oss.biz.service.dto.FieldIdxOutDto">
+        SELECT field_idx as fieldIdx, mb_Idx as mbIdx, group_idx as groupIdx, field_title as fieldTitle, field_local as fieldLocal, useflag as useflag, regdate as regdate FROM goms_field WHERE field_idx = #{fieldIdx}
+   </select>
+</mapper>

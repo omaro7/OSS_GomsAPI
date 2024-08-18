@@ -1,0 +1,19 @@
+# Encrypt/Decrypt Config
+enc:
+# AES on/off
+ use: false
+# AES Used for encryption/decryption value(48byte, HEX String)
+# key(32byte) + iv(16byte)
+ psk: d727d4cb0448fba96d58177fa958bac0e98ab544b81b23d0a22c1ddbf9540d36393a64b6cf323eae7c7e835257462393
+# AES Algorithm (AES fix)
+ alg: AES
+# AES Cipher ( GCM / NoPadding)
+ cipher: /GCM/NoPadding
+ algcipher: /AES/GCM/NoPadding
+
+jwt:
+ secretkey: 393a64b6cf32
+ private.key: classpath:config/app.key
+ public.key: classpath:config/app.pub 
+ token-validity-in-seconds: 86400					# Token is valid 24 hours
+ token-validity-in-seconds-for-remember-me: 604800 	# Token is valid 7 Day

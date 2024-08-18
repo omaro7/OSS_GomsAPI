@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.goms.web.oss.biz.service.mapper.MemberInsertMapper">
+
+    <insert id="insertMember" parameterType="kr.co.goms.web.oss.biz.service.domain.MemberInsertIn" useGeneratedKeys="true" keyProperty="mbIdx">
+        INSERT INTO member (mb_id, mb_pwd, mb_name, mb_role, regdate)
+        VALUES (#{mbId}, #{mbPwd}, #{mbName}, #{mbRole}, #{regdate})
+        
+        <selectKey resultType="Long" keyProperty="number" order="AFTER"> <!-- 입력후 mb_idx를 리턴함 -->
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		
+    </insert>
+    <delete id="deleteMember" parameterType="Long">
+    	DELETE FROM member WHERE mb_idx = #{mb_idx}
+    </delete>
+
+    <select id="selectAllMembers" resultMap="kr.co.goms.web.oss.biz.service.domain.MemberOut" >
+    	SELECT mb_idx as mbIdx, mb_id as mbId, mb_pwd as mbPwd, mb_name as mbName,
+               mb_role as mbRole, regdate 
+        FROM member
+    </select>
+</mapper>

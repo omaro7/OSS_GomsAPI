@@ -1,0 +1,7 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.goms.web.oss.biz.repository.FieldCategoryRepository">
+    <insert id="insFieldCategory" parameterType="kr.co.goms.web.oss.biz.service.dto.FieldCategoryInsInDto">
+        INSERT INTO goms_field_category (field_category_idx, field_category_name, useflag, regdate) VALUES (#{fieldCategoryIdx}, #{fieldCategoryName}, #{useflag}, #{regdate})
+   </insert>
+</mapper>

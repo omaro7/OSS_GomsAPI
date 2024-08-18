@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.goms.web.oss.biz.repository.MemberRepository">
+    <update id="updMember" parameterType="kr.co.goms.web.oss.biz.service.dto.MemberUpdInDto">
+        UPDATE member SET mb_idx = #{mbIdx}, mb_Id = #{mbId}, mb_pwd = #{mbPwd}, mb_name = #{mbName}, mb_role = #{mbRole}, regdate = #{regdate} WHERE #{mbIdx}
+   </update>
+</mapper>

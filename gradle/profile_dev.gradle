@@ -1,0 +1,66 @@
+def build4Runtime="develop"
+
+if(project.hasProperty("buildRuntime")){
+	build4Runtime = "runtime";
+}
+
+dependencies {
+
+	println "---------------- GRADLE DEV START-----------------"
+	println "---------------- build for runtime mode " + build4Runtime + "-----------------"
+	if(build4Runtime == "runtime"){
+		println "---------------- build for runtime mode (not include dev-tool) -----------------"
+	}else{
+		println "---------------- build for runtime mode (include dev-tool) -----------------"
+		developmentOnly "org.springframwork.boot:spring-boot-devtools:${springBootVersion}"
+	}
+		
+}
+def profiles = "dev, api-docs"
+if(project.hasProperty("no-liquibase")){
+	profiles += ", no-liquibase"
+}
+if(project.hasProperty("tls")){
+	profiles += ", tls"
+}
+
+springBoot {
+	buildInfo {
+		properties {
+			time = null
+		}
+	}
+}
+
+bootRun {
+	args  = ["--spring.profiles.active=${profiles}"]
+}
+
+processResourecs {
+	inputs.property('version', version)
+	inputs.property('springProfiles', profiles)
+	filesMatching("**/application.yml"){
+		filter{
+			it.replace("#project.version#", version)
+		}
+		filter{
+			it.replace("#spring.profiles.active#", profiles)
+		}
+	}
+}
+
+task integrationTest(type: Test){
+	maxHeapSize = "1G"
+	useJUnitPlatForm()
+	description = "Execute integration tests"
+	group = "verification"
+	include "**/*IT*", "**/*IntTest*"
+	testLogging{
+		events 'FAILED', 'SKIPPED'
+	}
+	
+	systemProperty('spring.profiles.active','testdev')
+	systemProperty('java.security.egd','file:/dev/./urandom')
+}
+
+integrationTest.dependsOn test
