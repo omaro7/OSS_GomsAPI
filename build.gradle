@@ -46,12 +46,11 @@ if(project.hasProperty("prod")){
 	apply from: "gradle/profile_local.gradle"
 }
 
-/*
 pmd {
 	consoleOutput = true
 	toolVersion = "6.21.0"
 	rulesMinimumPriority = 1
-	ruleSetFiles = files("EgovInspectionRles_kro-3.8.xml")
+	ruleSetFiles = files("EgovInspectionRles_kor.xml")
 	reportsDir = file("${buildDir}/pmd-output")
 	ignoreFailures = true	//분석결과 예외가 발생하면 빌드실패 발생시키는 것을 제외함
 }
@@ -61,8 +60,6 @@ pmdMain{
 		xml.destination = file("${pmd.reportsDir}/pmd-report.xml");
 	}
 }
-*/
-
 
 dependencies {
   	implementation('org.springframework.boot:spring-boot-starter') {
