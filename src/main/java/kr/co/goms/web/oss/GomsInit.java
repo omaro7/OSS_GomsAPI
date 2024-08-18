@@ -20,14 +20,11 @@ public class GomsInit {
     public void init(){
     	
     	System.out.println("*********************************************************************");
-    	System.out.println("[AMS 서버] 서버 기동 시작 및 기본 세팅 시작...");
+    	System.out.println("[GOMS 서버] 서버 기동 시작 및 기본 세팅 시작...");
     	
-    	/* 필요하면 config/ams.properties 생성하여 처리할 수 있습니다.
-        URL examURL = getClass().getClassLoader().getResource("config/ams.properties");
+    	/* 필요하면 config/goms.properties 생성하여 처리할 수 있습니다.
+        URL examURL = getClass().getClassLoader().getResource("config/goms.properties");
         String examFilePath = examURL.getFile().toString();
-
-        // 인스턴스 생성
-        System.out.println("[EXAM 서버] exam.properties 위치 : " + examFilePath);
         
         Properties prop = new Properties();
         FileInputStream fis = null;
@@ -49,7 +46,7 @@ public class GomsInit {
     	
     	//EnumResponseType
     	
-    	System.out.println("[AMS 서버] 서버 기동 초기화 완료...");
+    	System.out.println("[GOMS 서버] 서버 기동 초기화 완료...");
     	System.out.println("*********************************************************************");
 		
     }
