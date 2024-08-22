@@ -41,7 +41,7 @@ public class FieldCategoryController {
         return new ResponseEntity<>(response, HttpStatus.OK);
    }
 
-   @Tag(name = "GOMS API > Field_category", description = "GOMS API Field_category입니다. 개별 조회입니다.")
+   @Tag(name = "GOMS API > FieldCategory", description = "GOMS API Field_category입니다. 개별 조회입니다.")
    @PostMapping("/fieldCategory/getFieldCategory")
    public ResponseEntity<ApiResponse<FieldCategoryIdxOutDto>> getFieldCategory(FieldCategoryIdxInDto inDto) {
         FieldCategoryIdxOutDto  field_category = fieldCategoryService.getFieldCategory(inDto);
@@ -49,7 +49,7 @@ public class FieldCategoryController {
         return new ResponseEntity<>(response, HttpStatus.OK);
    }
 
-   @Tag(name = "GOMS API > Field_category", description = "GOMS API Field_category입니다. 개별 삭제입니다.")
+   @Tag(name = "GOMS API > FieldCategory", description = "GOMS API Field_category입니다. 개별 삭제입니다.")
    @PostMapping("/fieldCategory/delFieldCategory")
    public ResponseEntity<ApiResponse<Void>> delFieldCategory(FieldCategoryDelInDto inDto) {
         boolean isDel = fieldCategoryService.delFieldCategory(inDto);
