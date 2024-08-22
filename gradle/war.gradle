@@ -1,0 +1,13 @@
+apply plugin: "war"
+
+bootwar {
+	enabled = false
+	mainClass = "goms.OssApplication"
+	includes = ["WEB-INF/**", "META-INF/**"]
+}
+
+war {
+	enabled = true
+	archiveBaseName = "gomsOss"
+	archiveFileName = "gomsOss.war"
+}
